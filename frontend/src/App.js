@@ -3,7 +3,7 @@ import { BrowserProvider, Contract } from "ethers";
 import { formatEther, parseEther } from "ethers";
 import SupplyChainABI from "./SupplyChainABI.json";
 
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // Replace with actual deployed contract address
+const contractAddress = process.env.REACT_APP_DEPLOY_ADDRESS
 
 function App() {
     const [account, setAccount] = useState(null);
@@ -89,8 +89,13 @@ function App() {
     
         try {
             // ✅ Remove `parseEther`, manually convert ETH to `uint256`
+            console.log("eth 1", productPrice)
             const priceInETH = Number(productPrice); // User inputs ETH
+
+            console.log("eth 2", priceInETH)
             const priceForContract = priceInETH * 10 ** 18; // Convert to `uint256`
+
+            console.log("eth 3", priceForContract)
     
             // 🔍 Debugging: Log values before calling the contract
             console.log("Attempting to create product with values:", {
@@ -99,7 +104,7 @@ function App() {
             });
     
             // ✅ Call contract with ETH value (converted manually)
-            const tx = await contract.createProduct(productName, priceForContract);
+            const tx = await contract.createProduct(productName, parseEther(productPrice));
             console.log("Transaction sent:", tx);
     
             await tx.wait();
@@ -113,10 +118,6 @@ function App() {
             alert("Failed to create product. Check console for details.");
         }
     }
-    
-    
-    
-    
 
     return (
         <div>

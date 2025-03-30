@@ -17,11 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "npx hardhat node",
-    "compile": "npx hardhat compile",
-    "test": "npx hardhat test"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
