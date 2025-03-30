@@ -2,7 +2,7 @@
   "_format": "hh-sol-artifact-1",
   "contractName": "SupplyChain",
   "sourceName": "contracts/SupplyChain.sol",
-"abi": [
+  "abi": [
     {
       "anonymous": false,
       "inputs": [
@@ -53,6 +53,11 @@
           "internalType": "string",
           "name": "_name",
           "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_price",
+          "type": "uint256"
         }
       ],
       "name": "createProduct",
