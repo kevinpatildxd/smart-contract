@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { BrowserProvider, Contract } from "ethers";
 import { formatEther, parseEther } from "ethers";
 import SupplyChainABI from "./SupplyChainABI.json";
+//import TransactionList from './TransactionList'; // Import the TransactionList component
 
 const contractAddress = process.env.REACT_APP_DEPLOY_ADDRESS
+const address = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Replace with a valid Ethereum address on Sepolia
 
 function App() {
     const [account, setAccount] = useState(null);
@@ -146,6 +148,10 @@ function App() {
                 />
                 <button onClick={createProduct} disabled={!contract}>Create Product</button>
             </div>
+            {/* <div>
+            <h1>Ethereum Sepolia Transactions</h1>
+            <TransactionList address={address} />
+            </div> */}
         </div>
     );
 }
